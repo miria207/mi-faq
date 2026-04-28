@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: transparent;
+    padding: 20px 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid #c8e6e2;
+    overflow: hidden;
+  }
+  .faq-item:first-child {
+    border-top: 1px solid #c8e6e2;
+  }
+  .faq-btn {
+    width: 100%; background: none; border: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 8px; cursor: pointer; text-align: left; gap: 16px;
+  }
+  .faq-btn:hover { background: rgba(78,182,172,0.04); }
+  .faq-q {
+    display: flex; align-items: flex-start; gap: 12px; flex: 1;
+  }
+  .faq-label {
+    font-size: 15px; font-weight: 700;
+    color: #4EB6AC; flex-shrink: 0; line-height: 1.6;
+  }
+  .faq-question-text {
+    font-size: 15px; font-weight: 500;
+    color: #2a2a2a; line-height: 1.6;
+  }
+  .faq-icon {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1.5px solid #4EB6AC;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: transform 0.3s, background 0.3s;
+  }
+  .faq-btn.open .faq-icon {
+    background: #4EB6AC; transform: rotate(45deg);
+  }
+  .faq-icon svg {
+    width: 12px; height: 12px;
+    stroke: #4EB6AC; fill: none; stroke-width: 2.5;
+    transition: stroke 0.3s;
+  }
+  .faq-btn.open .faq-icon svg { stroke: #fff; }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .faq-answer.open { max-height: 300px; }
+  .faq-answer-inner {
+    padding: 0 8px 20px 40px;
+    font-size: 14px; line-height: 1.9;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="faq-item">
+  <button class="faq-btn" onclick="toggle(this)">
+    <div class="faq-q">
+      <span class="faq-label">Q.</span>
+      <span class="faq-question-text">営業代行サービスはどんな企業が対象ですか？</span>
+    </div>
+    <div class="faq-icon">
+      <svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+    </div>
+  </button>
+  <div class="faq-answer">
+    <div class="faq-answer-inner">業種・規模を問わず幅広い企業様にご対応しております。BtoB・BtoCどちらの営業にも対応しており、まずはお気軽にご相談ください。ヒアリングを通じて最適なプランをご提案いたします。</div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-btn" onclick="toggle(this)">
+    <div class="faq-q">
+      <span class="faq-label">Q.</span>
+      <span class="faq-question-text">コンサルタント育成プログラムはどのくらいの期間ですか？</span>
+    </div>
+    <div class="faq-icon">
+      <svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+    </div>
+  </button>
+  <div class="faq-answer">
+    <div class="faq-answer-inner">基本プログラムは3ヶ月間のカリキュラムです。オンラインで受講可能ですので、育児や家事と両立しながら学ぶことができます。受講ペースはご自身のライフスタイルに合わせて柔軟に調整できます。</div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-btn" onclick="toggle(this)">
+    <div class="faq-q">
+      <span class="faq-label">Q.</span>
+      <span class="faq-question-text">営業経験がなくても参加できますか？</span>
+    </div>
+    <div class="faq-icon">
+      <svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+    </div>
+  </button>
+  <div class="faq-answer">
+    <div class="faq-answer-inner">はい、未経験の方も大歓迎です！プログラムは基礎から学べる構成になっており、営業のいろはから丁寧に指導いたします。実際に多くの未経験の方が受講し、活躍されています。</div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-btn" onclick="toggle(this)">
+    <div class="faq-q">
+      <span class="faq-label">Q.</span>
+      <span class="faq-question-text">在宅でも仕事できますか？どんなお仕事を紹介してもらえますか？</span>
+    </div>
+    <div class="faq-icon">
+      <svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+    </div>
+  </button>
+  <div class="faq-answer">
+    <div class="faq-answer-inner">はい！在宅・フレックス対応のお仕事を多数ご紹介しています。営業職を中心に、お一人おひとりのスキルや希望する働き方をヒアリングした上で、最適なお仕事をマッチングいたします。</div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-btn" onclick="toggle(this)">
+    <div class="faq-q">
+      <span class="faq-label">Q.</span>
+      <span class="faq-question-text">料金・費用はどのくらいかかりますか？</span>
+    </div>
+    <div class="faq-icon">
+      <svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+    </div>
+  </button>
+  <div class="faq-answer">
+    <div class="faq-answer-inner">サービスやご利用内容によって異なります。まずは無料相談をご活用ください！ご要望・ご予算に合わせた最適なプランをご提案いたします。お気軽にお問い合わせください。</div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-btn" onclick="toggle(this)">
+    <div class="faq-q">
+      <span class="faq-label">Q.</span>
+      <span class="faq-question-text">青森県外からでも利用できますか？</span>
+    </div>
+    <div class="faq-icon">
+      <svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+    </div>
+  </button>
+  <div class="faq-answer">
+    <div class="faq-answer-inner">はい、全国どこからでもご利用いただけます。オンラインでのご相談・サービス提供に対応しておりますので、地域を問わずお気軽にご連絡ください。</div>
+  </div>
+</div>
+
+<script>
+  function toggle(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+    // 高さをWixの親ページに通知
+    setTimeout(() => {
+      window.parent.postMessage({ height: document.body.scrollHeight }, '*');
+    }, 450);
+  }
+</script>
+
+</body>
+</html>
